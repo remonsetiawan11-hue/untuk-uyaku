@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misi Damai Spesial Untuk Uyaku ✨</title>
+    <style>
+        :root {
+            --primary: #ff7675;
+            --secondary: #fdcb6e;
+            --bg: #ffeaa7;
+            --text: #2d3436;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .menu-tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px 10px;
+            color: #b2bec3;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: inline-block;
+            margin: 10px 5px;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Frame Foto Main Game */
+        .photo-frame {
+            width: 280px;
+            height: 370px;
+            margin: 20px auto;
+            border: 8px solid white;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            background-color: #dfe4ea;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .meme-box {
+            font-size: 5rem;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        #jokeText {
+            font-style: italic;
+            font-weight: bold;
+            color: #636e72;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Animasi Surat Mengetik */
+        .surat-box {
+            background: #fff5f5;
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+            min-height: 150px;
+            margin: 20px 0;
+        }
+
+        #typingSurat {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            display: inline;
+        }
+
+        .cursor {
+            display: inline-block;
+            background-color: var(--primary);
+            width: 3px;
+            height: 1.1rem;
+            animation: blink 0.8s infinite;
+            vertical-align: middle;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Menu Grid Kenangan */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            background: white;
+            padding: 8px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: rotate(calc(var(--r, 0) * 1deg));
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: rotate(0deg) scale(1.05);
+            z-index: 10;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .gallery-item p {
+            font-size: 0.85rem;
+            margin: 5px 0 0 0;
+            font-weight: bold;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <h1>Misi Damai Dimulai! 🚀</h1>
+        <p>Halo <span style="color: var(--primary); font-weight: bold;">Uyaku Tersayang</span>... Jangan sedih atau marah lagi dong. Aku punya sesuatu buat balikin senyum manis kamu. Tolong jelajahi menu di bawah ya! 👇</p>
+
+        <div class="menu-tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'ucapan')">💌 Surat Maaf</button>
+            <button class="tab-btn" onclick="openTab(event, 'permainan')">🎮 Game Foto</button>
+            <button class="tab-btn" onclick="openTab(event, 'kenangan')">📸 Kenangan Uyaku</button>
+            <button class="tab-btn" onclick="openTab(event, 'hiburan')">🍿 Hiburan</button>
+        </div>
+
+        <div id="ucapan" class="content-section active">
+            <div class="meme-box">🥺</div>
+            <h3>Surat Terbuka Untuk Uyaku</h3>
+            
+            <div class="surat-box">
+                <span id="typingSurat"></span><span class="cursor" id="cursorLine"></span>
+            </div>
+
+            <button class="btn" onclick="pindahKeTabPermainan()">Lanjut ke Game Yuk! ➡️</button>
+        </div>
+
+        <div id="permainan" class="content-section">
+            <h3>Sesi Gerak Refleks Minta Maaf 😤</h3>
+            <p>Coba klik tombol <strong>NEXT / MAAFIN GAK?</strong> di bawah untuk melihat tingkat keseriusan penyesalanku!</p>
+            
+            <div class="photo-frame">
+                <img id="displayFoto" src="foto_normal.jpg" alt="Foto Maaf">
+            </div>
+
+            <div style="margin-top: 20px;">
+                <button class="btn" id="btnNext" onclick="mulaiLoopingMaaf()">NEXT / MAAFIN GAK? 🤔</button>
+                <button class="btn" id="btnStop" onclick="stopLoopingMaaf()" style="background-color: #2ecc71; display: none;">Iya Dimaafin! Stop! ❤️</button>
+            </div>
+            
+            <p id="gameResult" style="margin-top: 25px; font-weight: bold; color: #2ecc71; font-size: 1.2rem; min-height: 50px;"></p>
+        </div>
+
+        <div id="kenangan" class="content-section">
+            <h3>Momen Indah Bareng Uyaku ✨</h3>
+            <p>Marahnya ditahan dulu ya Uyaku, inget-inget lagi momen manis pas kita lagi bareng-bareng dulu... 👇</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" style="--r: -3">
+                    <img src="foto1.jpg" alt="Kenangan 1">
+                    <p>Momen Manis 🤍</p>
+                </div>
+                <div class="gallery-item" style="--r: 4">
+                    <img src="foto6.webp" alt="Kenangan 2">
+                    <p>Jalan-Jalan 🌸</p>
+                </div>
+                <div class="gallery-item" style="--r: -2">
+                    <img src="cover.jpg" alt="Kenangan 3">
+                    <p>Senyum Uyaku 🥰</p>
+                </div>
+            </div>
+            <br>
+            <p style="font-size: 1rem; color: #636e72; font-style: italic; margin-top: 15px;">"Aku gak mau momen indah kayak gini hilang cuma gara-gara ego bodohku. Maafin aku ya..."</p>
+        </div>
+
+        <div id="hiburan" class="content-section">
+            <h3>Pojok Anti-Sedih ✨</h3>
+            <p>Katanya ketawa bisa meredakan stres. Nih, aku siapin gombalan/jokes garing khusus buat Uyaku:</p>
+            
+            <div style="background: #f1f2f6; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                <p id="jokeText">"Uyaku tahu gak bedanya kamu sama rumus matematika? Kalau rumus matematika susah dihafal, kalau kamu susah dilupain. Eaaaa~"</p>
+                <button class="btn" onclick="gantiJoke()" style="background-color: var(--secondary); color: #2d3436;">Minta Jokes Lain 🔄</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Tips: Ganti URL di bawah ini dengan nama file fotomu jika sudah siap di satu folder
+        // Contoh: const fotoNormalSrc = "foto_normal.jpg";
+        const fotoNormalSrc = 'foto_normal.jpg'; // Ganti dengan nama file foto normal
+        const fotoBungkukSrc = "foto_bungkuk.jpg"; // Ganti dengan nama file foto bungkuk
+        
+        let loopInterval = null;
+        let sedangMembungkuk = false;
+
+        const teksSurat = "Aku tahu aku kadang keras kepala, gampang bikin kesel, dan ceroboh. Aku bener-bener minta maaf ya Uyaku kalau udah bikin hari kamu jadi mendung gara-gara kesalahan aku...\n\nJanji jujur: Aku bakal berusaha mengurangi kadar menyebalkannya aku demi liat Uyaku bisa ceria dan ketawa lagi. Senyum lagi dong, semesta ikut sedih kalau kamu cemberut! ☀️❤️";
+        
+        let indexKetik = 0;
+        function jalankanAnimasiKetik() {
+            const typingElement = document.getElementById("typingSurat");
+            const cursorElement = document.getElementById("cursorLine");
+
+            if (typingElement && indexKetik < teksSurat.length) {
+                typingElement.innerHTML += teksSurat.charAt(indexKetik);
+                indexKetik++;
+                setTimeout(jalankanAnimasiKetik, 45);
+            } else if (cursorElement) {
+                cursorElement.style.display = "none";
+            }
+        }
+
+        // Menggunakan DOMContentLoaded agar fungsi berjalan tepat setelah HTML siap di-render
+        document.addEventListener("DOMContentLoaded", function() {
+            jalankanAnimasiKetik();
+        });
+
+        function mulaiLoopingMaaf() {
+            const imgElement = document.getElementById('displayFoto');
+            const btnNext = document.getElementById('btnNext');
+            const btnStop = document.getElementById('btnStop');
+            const result = document.getElementById('gameResult');
+
+            result.innerHTML = "Tuh liat! Aku minta maafnya sampai sujud berkali-kali tanpa henti demi dimaafin Uyaku! 😭😂";
+            btnNext.style.display = 'none';
+            btnStop.style.display = 'inline-block';
+
+            loopInterval = setInterval(() => {
+                if(sedangMembungkuk) {
+                    imgElement.src = fotoNormalSrc;
+                    sedangMembungkuk = false;
+                } else {
+                    imgElement.src = fotoBungkukSrc;
+                    sedangMembungkuk = true;
+                }
+            }, 180); 
+        }
+
+        function stopLoopingMaaf() {
+            clearInterval(loopInterval);
+            const imgElement = document.getElementById('displayFoto');
+            const result = document.getElementById('gameResult');
+            
+            imgElement.src = fotoBungkukSrc; 
+            result.innerHTML = "Yeeey! Akhirnya dimaafin! 🎉 Sumpah pinggang sama punggung aku langsung mau patah. Makasih banyak ya Uyaku sayang! ❤️😊";
+            document.getElementById('btnStop').style.display = 'none';
+        }
+
+        function openTab(evt, tabId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            if(evt) evt.currentTarget.classList.add('active');
+
+            if (tabId === 'ucapan') {
+                document.getElementById("typingSurat").innerHTML = "";
+                const cursorElement = document.getElementById("cursorLine");
+                if(cursorElement) cursorElement.style.display = "inline-block";
+                indexKetik = 0;
+                jalankanAnimasiKetik();
+            }
+        }
+
+        function pindahKeTabPermainan() {
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs[1].click();
+        }
+
+        const daftarJokes = [
+            "Uyaku tahu gak bedanya kamu sama rumus matematika? Kalau rumus matematika susah dihafal, kalau kamu susah dilupain. Eaaaa~",
+            "Aku emang bukan pahlawan di film Marvel, tapi aku siap jadi 'I Love You 3000' buat Uyaku. 🦸‍♂️",
+            "Kalau Uyaku itu halte, aku rela jadi busnya yang gak akan pernah lewat gitu aja tanpa berhenti di kamu. 🚌",
+            "Maaf ya bikin kesel. Anggap aja kekesalan hari ini adalah iklan, dan sekarang kita udah balik lagi ke tayangan utama: Bahagia bareng Uyaku! 🎬",
+            "Jangan sedih lagi dong Uyaku. Kalau kamu sedih, nanti imutnya berkurang 50%, kan rugi! 📉"
+        ];
+
+        function gantiJoke() {
+            const jokeText = document.getElementById('jokeText');
+            const indexAcak = Math.floor(Math.random() * daftarJokes.length);
+            jokeText.innerText = `"${daftarJokes[indexAcak]}"`;
+        }
+    </script>
+</body>
+</html>
